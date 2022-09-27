@@ -3,23 +3,17 @@ defmodule Exlivery.Users.UserTest do
 
   alias Exlivery.Users.User
 
+  import Exlivery.Factory
+
   describe "build/5" do
     test "when all params are valid" do
-      response = User.build("Arthur", "a@b.com", "123123123", 27, "Rua Um")
+      response = User.build("Goku", "a@b.com", "123123123", 35, "Goku's House")
 
-      assert response ==
-               {:ok,
-                %User{
-                  address: "Rua Um",
-                  age: 27,
-                  cpf: "123123123",
-                  email: "a@b.com",
-                  name: "Arthur"
-                }}
+      assert response == {:ok, build(:user)}
     end
 
     test "when user is underage" do
-      response = User.build("Gohan", "a@b.com", "123123123", 12, "Rua Um")
+      response = User.build("Goten", "a@b.com", "123123123", 12, "Goku's House")
 
       assert response == {:error, "Invalid Parameters"}
     end
