@@ -1,18 +1,19 @@
 defmodule Exlivery.Users.User do
-  @keys [:name, :email, :cpf, :age]
+  @keys [:name, :email, :cpf, :age, :address]
   @enforce_keys @keys
 
   defstruct @keys
 
-  def build(name, email, cpf, age) when age >= 18 do
+  def build(name, email, cpf, age, address) when age >= 18 do
     {:ok,
      %__MODULE__{
        name: name,
        email: email,
        cpf: cpf,
-       age: age
+       age: age,
+       address: address
      }}
   end
 
-  def build(_name, _email, _cpf, _age), do: {:error, "Invalid Parameters"}
+  def build(_name, _email, _cpf, _age, _address), do: {:error, "Invalid Parameters"}
 end
