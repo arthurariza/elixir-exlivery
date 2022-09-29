@@ -1,6 +1,6 @@
 defmodule Exlivery do
   alias Exlivery.Users.CreateOrUpdate
-  alias Exlivery.Users.Agent, as: UserAgent
+  alias Exlivery.Users.UserAgent
 
   def start_agents do
     UserAgent.start_link(%{})
