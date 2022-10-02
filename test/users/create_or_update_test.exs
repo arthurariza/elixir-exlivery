@@ -4,8 +4,6 @@ defmodule Exlivery.Users.CreateOrUpdateTest do
   alias Exlivery.Users.CreateOrUpdate
   alias Exlivery.Users.UserAgent
 
-  import Exlivery.Factory
-
   describe "call/1" do
     setup do
       UserAgent.start_link(%{})
